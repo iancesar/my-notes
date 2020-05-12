@@ -1,6 +1,14 @@
 <template>
   <div class="ml-5 mr-5 pa-0">
-    <v-textarea auto-grow="true" autofocus="true" full-width flat class="custom"></v-textarea>
+    <v-textarea
+      auto-grow="true"
+      autofocus="true"
+      full-width
+      flat
+      class="custom font-weight-light title"
+      v-model="note"
+      spellcheck="false"
+    ></v-textarea>
   </div>
 </template>
 
@@ -9,56 +17,8 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
-      }
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/layout/pre-defined"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
-    ]
+    note:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus nisl rutrum hendrerit fringilla. Nunc vestibulum ipsum sit amet lacus imperdiet, in commodo eros interdum. Sed non ex mauris. Nunc vestibulum sapien quis nisl scelerisque, et lacinia lorem fringilla. Aliquam scelerisque, ligula et tincidunt venenatis, est ipsum vestibulum urna, ac gravida quam erat in sapien. Ut porta vel nunc a pulvinar. Mauris dignissim diam non lorem imperdiet, vel aliquam ante vulputate. Maecenas vel tincidunt purus. Sed odio tellus, venenatis nec neque nec, ultrices ultricies mi. Quisque aliquam orci rhoncus velit consequat dignissim. Suspendisse egestas commodo tincidunt. Nunc tristique hendrerit nulla a efficitur. Donec id pharetra nunc, non vulputate diam."
   })
 };
 </script>
