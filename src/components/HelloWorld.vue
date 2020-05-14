@@ -1,34 +1,70 @@
 <template>
   <div lass="pa-0">
-    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig" @input="save()"></ckeditor>
+    <tiptap-vuetify v-model="content" :extensions="extensions" :card-props="{ flat: true}" />
   </div>
 </template>
 
 <script>
 import firebase from "firebase";
 
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
-// import EssentialsPlugin from "@ckeditor/ckeditor5-essentials/src/essentials";
-// import BoldPlugin from "@ckeditor/ckeditor5-basic-styles/src/bold";
-// import ItalicPlugin from "@ckeditor/ckeditor5-basic-styles/src/italic";
-// import LinkPlugin from "@ckeditor/ckeditor5-link/src/link";
-// import ParagraphPlugin from "@ckeditor/ckeditor5-paragraph/src/paragraph";
-// import Font from "@ckeditor/ckeditor5-font/src/font";
+import {
+  TiptapVuetify,
+  Heading,
+  Bold,
+  Italic,
+  Strike,
+  Underline,
+  Code,
+  Paragraph,
+  BulletList,
+  OrderedList,
+  ListItem,
+  Link,
+  Blockquote,
+  HardBreak,
+  HorizontalRule,
+  History,
+  TodoList,
+  TodoItem
+} from "tiptap-vuetify";
 
 export default {
   name: "HelloWorld",
-
+  components: { TiptapVuetify },
   data: () => ({
-    editor: ClassicEditor,
-    editorData: "",
-    editorConfig: {
-      // The configuration of the editor.
-    }
+    extensions: [
+      History,
+      Blockquote,
+      Link,
+      Underline,
+      Strike,
+      Italic,
+      ListItem,
+      BulletList,
+      OrderedList,
+      [
+        Heading,
+        {
+          options: {
+            levels: [1, 2, 3]
+          }
+        }
+      ],
+      Bold,
+      Code,
+      HorizontalRule,
+      Paragraph,
+      HardBreak,
+      TodoList,
+      TodoItem
+    ],
+    content: ""
   }),
-  methods: {
-    save() {
-      this.ref.set(this.editorData);
+  watch: {
+    content: {
+      handler(val) {
+        this.ref.set(val);
+      }
     }
   },
   computed: {
@@ -39,25 +75,7 @@ export default {
   async mounted() {
     const note = await this.ref.once("value");
     console.log(note.val());
-
-    this.editorData = note.val();
-
-    // this.ref.once("value").then(function(snapshot) {
-    //   console.log(snapshot.val());
-    // });
+    this.content = note.val();
   }
-  // ,
-  // components: {
-  //   ckeditor: ClassicEditor.component
-  // }
 };
 </script>
-
-<style>
-.custom.v-text-field > .v-input__control > .v-input__slot:before {
-  border-style: none;
-}
-.custom.v-text-field > .v-input__control > .v-input__slot:after {
-  border-style: none;
-}
-</style>
