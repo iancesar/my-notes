@@ -19,8 +19,9 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+Vue.use(CKEditor)
+
 new Vue({
   vuetify,
-  CKEditor,
   render: h => h(App)
 }).$mount('#app')
