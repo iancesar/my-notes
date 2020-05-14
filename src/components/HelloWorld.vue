@@ -1,5 +1,7 @@
 <template>
   <div class="ml-5 mr-5 pa-0">
+    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+
     <v-textarea
       auto-grow
       autofocus
@@ -16,11 +18,21 @@
 <script>
 import firebase from "firebase";
 
+import ClassicEditor from "@ckeditor/ckeditor5-editor-classic/src/classiceditor";
+
+import EssentialsPlugin from "@ckeditor/ckeditor5-essentials/src/essentials";
+import BoldPlugin from "@ckeditor/ckeditor5-basic-styles/src/bold";
+import ItalicPlugin from "@ckeditor/ckeditor5-basic-styles/src/italic";
+import LinkPlugin from "@ckeditor/ckeditor5-link/src/link";
+import ParagraphPlugin from "@ckeditor/ckeditor5-paragraph/src/paragraph";
+import Font from "@ckeditor/ckeditor5-font/src/font";
+
 export default {
   name: "HelloWorld",
 
   data: () => ({
-    note: ""
+    note: "",
+    }
   }),
   methods: {
     save() {
@@ -39,6 +51,9 @@ export default {
     // this.ref.once("value").then(function(snapshot) {
     //   console.log(snapshot.val());
     // });
+  },
+  components: {
+    ckeditor: ClassicEditor.component
   }
 };
 </script>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import firebase from 'firebase';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 Vue.config.productionTip = false
 
@@ -20,5 +21,6 @@ firebase.initializeApp(firebaseConfig);
 
 new Vue({
   vuetify,
+  CKEditor,
   render: h => h(App)
 }).$mount('#app')
