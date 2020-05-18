@@ -18,6 +18,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install
+    - run: yarn global add firebase
     - run: yarn global add firebase-tools
     - run: firebase login:ci
     - run: yarn run build
