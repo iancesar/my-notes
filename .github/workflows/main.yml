@@ -20,7 +20,7 @@ jobs:
     - run: yarn install
     - run: yarn global add firebase
     - run: yarn global add firebase-tools
-    - run: firebase login:ci
+    #- run: firebase login:ci
     - run: yarn run build
       env:
         CI: true

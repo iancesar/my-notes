@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && firebase deploy",
+    "build": "vue-cli-service build && firebase deploy --token 1//0hhOZ9Q298B7QCgYIARAAGBESNwF-L9Irpo91CRPPQr5OXFLSrJyvEKmlME31ORcqNIaTKP1ZncfxOpANXlgywMw1LvA_LJ3i-A0",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
