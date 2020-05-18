@@ -64,6 +64,9 @@ export default {
     content: {
       handler(val) {
         this.ref.set(val);
+        document.getElementsByTagName("p").forEach(data => {
+          data.setAttribute("spellcheck", "false");
+        });
       }
     }
   },
@@ -76,6 +79,10 @@ export default {
     const note = await this.ref.once("value");
     console.log(note.val());
     this.content = note.val();
+
+    document.getElementsByTagName("p").forEach(data => {
+      data.setAttribute("spellcheck", "false");
+    });
   }
 };
 </script>
