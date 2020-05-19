@@ -22,5 +22,7 @@ jobs:
     - run: yarn global add firebase-tools
     - run: cd functions/ && npm install
     - run: yarn run build
+    - run: echo $FIREBASE_TOKEN
       env:
         CI: true
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
