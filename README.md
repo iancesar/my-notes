@@ -1,6 +1,9 @@
-# notes
+# My Notes
+
+![Node.js CI](https://github.com/iancesar/my-notes/workflows/Node.js%20CI/badge.svg)
 
 ## Project setup
+
 ```
 npm install
 ```
