@@ -17,13 +17,29 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
     - run: yarn install
-    - run: yarn global add firebase
-    - run: yarn global add firebase-tools
-    #- run: firebase login:ci
     - run: cd functions/ && npm install
     - run: yarn run build
       env:
         CI: true
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+      env:
+        CI: true
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    - run: yarn global add firebase
+    - run: yarn global add firebase-tools
+    - run: firebase deploy --token ${FIREBASE_TOKEN}
