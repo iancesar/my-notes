@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,7 +24,8 @@ jobs:
         CI: true
 
   deploy:
-
+    name: Deploy
+    needs: build
     runs-on: ubuntu-latest
 
     strategy:
