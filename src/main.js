@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import firebase from 'firebase';
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
